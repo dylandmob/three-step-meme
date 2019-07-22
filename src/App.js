@@ -14,7 +14,13 @@ export default function App() {
     }
     getPost();
   }, []);
-
+  if (!post.images.length) {
+    return (
+      <div>
+        <h3>Add some images to see your meme show up!</h3>
+      </div>
+    );
+  }
   return post.images.map((image, index) => (
     <div className="item row" key={image.id}>
       <img alt="meme" src={image.url} />
